@@ -17,7 +17,16 @@ comandos = [
     {
       'nome' => "/polos",
       'funcao' => 'Vou informar todos os polos do IFRN e suas localidades'
-    }
+    },
+    {
+      'nome' => "/horarios",
+      'funcao' => 'Vou informar os horários de abertura e fechamento do IFRN'
+    },
+    {
+      'nome' => "/fone",
+      'funcao' => 'Telefone da secretária geral do IFRN'
+    },
+
 
 
 ]
@@ -56,6 +65,10 @@ Telegram::Bot::Client.run(token) do |bot|
 
         when '/site'
           bot.api.send_message(chat_id: message.chat.id, text: "Nosso site é: http://portal.ifrn.edu.br/")
+        when '/horarios'
+          bot.api.send_message(chat_id: message.chat.id, text: "Horário de Atendimento:")
+        when '/fone'
+          bot.api.send_message(chat_id: message.chat.id, text: "Telefone:")
         when '/polos'
           question = 'Escola um polo:'
         answers =
