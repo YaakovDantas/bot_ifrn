@@ -25,11 +25,12 @@ Telegram::Bot::Client.run(token) do |bot|
     case message.text
     when '/start'
       bot.api.send_message(chat_id: message.chat.id, text: "Seja-bem vindo ao Assistente do IFRN, em que posso ajuda-lo ?")
+        bot.api.send_message(chat_id: message.chat.id, text: "Use o comando /help para ver o que posso fazer por você")
     when '/local'
       bot.api.send_message(chat_id: message.chat.id, text: "O IFRN campus de Natal na Salgado Filho se encontra: Av. Sen. Salgado Filho, 1559 - Tirol, Natal - RN, CEP:59015-000")
       bot.api.send_location(chat_id: message.chat.id, latitude: -5.8118082, longitude: -35.2034515)
-  when '/help'
-    bot.api.send_message(chat_id: message.chat.id, text: "Os meus comandos são:")
+    when '/help'
+      bot.api.send_message(chat_id: message.chat.id, text: "Os meus comandos são:")
 
     i=0
     comandos.each { |comando|
